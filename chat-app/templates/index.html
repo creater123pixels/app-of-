@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Private Chat</title>
+    <link rel="stylesheet" href="/static/style.css">  <!-- links to the CSS file -->
+</head>
+<body>
+    <h1>Welcome to the Chat</h1>
+
+    <!-- Password and message form -->
+    <form method="POST">
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <input type="text" name="username" placeholder="Your name" required>
+        <input type="text" name="message" placeholder="Type a message" required>
+        <button type="submit">Send</button>
+    </form>
+
+    <!-- Display chat messages -->
+    <div class="chat-box">
+        {% for msg in messages %}
+            <p><strong>{{ msg.username }}</strong> ({{ msg.time }}): {{ msg.message }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
